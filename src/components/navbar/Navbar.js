@@ -1,5 +1,6 @@
 import "./Navbar.css";
-import logo from "../assets/logo_locasta.png";
+import Cart from '../cardWidget/CardWidget'
+import logo from "../../assets/logo_locasta.png";
 
 function Navbar() {
   return (
@@ -55,6 +56,9 @@ function Navbar() {
                 </a>
               </li>
             </ul>
+                <a class="nav-link" href="#">
+                  <Cart/>
+                </a>
           </div>
         </div>
       </nav>
