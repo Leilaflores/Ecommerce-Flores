@@ -5,20 +5,20 @@ import logo from "../../assets/logo_locasta.png";
 function Navbar() {
   return (
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-light">
-        <div class="fondo container-fluid">
-          <a class="navbar-brand d-flex align-items-center" href="#">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-light">
+        <div className="fondo container-fluid">
+          <a className="navbar-brand d-flex align-items-center" href="#">
             <img
               src={logo}
               alt=""
               width="50"
               height="50"
-              class="d-inline-block align-text-top"
+              className="d-inline-block align-text-top"
             />
-            <h5 class="ps-2 m-0">Locasta</h5>
+            <h5 className="ps-2 m-0">Locasta</h5>
           </a>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNav"
@@ -26,37 +26,37 @@ function Navbar() {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse position-absolute end-0 pe-3" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">
+          <div className="collapse navbar-collapse position-absolute end-0 pe-3" id="navbarNav">
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <a className="nav-link active" aria-current="page" href="#">
                   Home
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
+              <li className="nav-item">
+                <a className="nav-link" href="#">
                   Productos
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
+              <li className="nav-item">
+                <a className="nav-link" href="#">
                   Galeria
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
+              <li className="nav-item">
+                <a className="nav-link" href="#">
                   Contacto
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
+              <li className="nav-item">
+                <a className="nav-link" href="#">
                   Conocenos
                 </a>
               </li>
             </ul>
-                <a class="nav-link" href="#">
+                <a className="nav-link" href="#">
                   <Cart/>
                 </a>
           </div>
