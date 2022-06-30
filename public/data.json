@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "title": "Remera" ,
+        "price": 1000,
+        "picture": "/img/remera.jpeg",
+        "stock":6
+    },
+    {
+        "id": 2,
+        "title": "Pantalon" ,
+        "price": 2000,
+        "picture": "/img/pantalon.jpeg",
+        "stock":4
+    },
+    {
+        "id": 3,
+        "title": "Buzo" ,
+        "price": 5000,
+        "picture": "/img/buzo.jpeg",
+        "stock":9
+    },
+    {
+        "id": 4,
+        "title": "Camisa" ,
+        "price": 1500,
+        "picture": "/img/camisa.jpeg",
+        "stock":5
+    }
+]
