@@ -2,7 +2,6 @@ import ItemCount from "../itemCount/itemCount";
 import "./Item.css";
 
 function Item(props) {
-  console.log(props.picture)
   return (
     <div className="card col-2 pb-4">
       <div>

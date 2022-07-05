@@ -27,6 +27,7 @@ function ItemCount(props) {
             <div className="d-flex flex-column">
             <button className="btn btn-primary my-1" type="button" onClick={reset}>Reset</button>
             <button className="btn btn-primary my-1" type="button" onClick={()=>{props.onAdd(num)}}>Agregar al carrito</button>
+            <button className="btn justify-content-center text-light">ver más</button>
             </div>
             </div>
         </>

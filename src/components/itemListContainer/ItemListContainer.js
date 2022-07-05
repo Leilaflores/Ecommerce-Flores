@@ -6,12 +6,17 @@ function ItemListContainer() {
 
     const [items, setItems] = useState([])
 
-    useEffect(()=>{
-        fetch('data.json') 
-        .then((resp)=> resp.json())
-        .then((data)=> setItems(data)) 
-    }, [])
-
+    const getItems = async () => {
+        const fetchData = await fetch('data.json') 
+        const data = await fetchData.json()
+        return new Promise((res)=>{setTimeout(res(data),2000)})
+      }
+    
+      useEffect(() => {
+        getItems().then((res)=>{
+          setItems(res);
+        })
+      }, []);
 
     return (
     <div className='container'>
