@@ -1,15 +1,17 @@
 //import "./ItemDetailContainer.css";
 import { useEffect, useState } from "react";
 import ItemDetail from "../itemDetail/ItemDetail";
-import Item from "../item/Item";
+import { useParams } from 'react-router-dom'
 
 function ItemDetailContainer() {
   const [item, setItem] = useState([]);
 
-  const id = 2;
+  const { id } = useParams();
+
   const getItem = async () => {
-    const fetchData = await fetch('data.json') 
+    const fetchData = await fetch('/data.json') 
     const data = await fetchData.json()
+    console.log(data)
     const item = data.find(item => item.id == id)
     return new Promise((res)=>{setTimeout(res(item),2000)})
   }
@@ -17,10 +19,16 @@ function ItemDetailContainer() {
   useEffect(() => {
     getItem().then((res)=>{
       setItem(res);
+      console.log(res)
     })
   }, []);
 
-  return <div className="container">{<ItemDetail item={item} />}</div>;
+  return (
+
+    <div className="container">
+      {item && <ItemDetail item={item} />}
+    </div>
+  )
 }
 
 export default ItemDetailContainer;

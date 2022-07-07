@@ -4,6 +4,7 @@
         "title": "Remera" ,
         "price": 1000,
         "picture": "/img/remera.jpeg",
+        "category":"remeras",
         "stock":6
     },
     {
@@ -11,6 +12,7 @@
         "title": "Pantalon" ,
         "price": 2000,
         "picture": "/img/pantalon.jpeg",
+        "category":"pantalones",
         "stock":4
     },
     {
@@ -18,6 +20,7 @@
         "title": "Buzo" ,
         "price": 5000,
         "picture": "/img/buzo.jpeg",
+        "category":"buzos",
         "stock":9
     },
     {
@@ -25,6 +28,39 @@
         "title": "Camisa" ,
         "price": 1500,
         "picture": "/img/camisa.jpeg",
+        "category":"camisas",
+        "stock":7
+    },
+    {
+        "id": 5,
+        "title": "Buzo 2" ,
+        "price": 5000,
+        "picture": "/img/buzo2.jpeg",
+        "category":"buzos",
+        "stock":7
+    },
+    {
+        "id": 6,
+        "title": "Pantalon 2" ,
+        "price": 1500,
+        "picture": "/img/pantalon2.jpeg",
+        "category":"pantalones",
         "stock":5
+    },
+    {
+        "id": 7,
+        "title": "Pantalon 3" ,
+        "price": 5000,
+        "picture": "/img/pantalon3.jpeg",
+        "category":"pantalones",
+        "stock":9
+    },
+    {
+        "id": 8,
+        "title": "Remera 2" ,
+        "price": 1500,
+        "picture": "/img/remera2.jpeg",
+        "category":"remeras",
+        "stock":3
     }
 ]
