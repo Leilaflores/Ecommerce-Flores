@@ -64,10 +64,18 @@ function Navbar() {
                   </Dropdown.Toggle>
 
                   <Dropdown.Menu>
-                    <Dropdown.Item href="/category/pantalones" >Pantalones</Dropdown.Item>
-                    <Dropdown.Item href="/category/camisas">Camisas</Dropdown.Item>
-                    <Dropdown.Item href="/category/buzos">Buzos</Dropdown.Item>
-                    <Dropdown.Item href="/category/remeras">Remeras</Dropdown.Item>
+                    <Link to="/category/pantalones">
+                      <Dropdown.Item >Pantalones</Dropdown.Item>
+                    </Link>
+                    <Link to="/category/camisas">
+                      <Dropdown.Item >Camisas</Dropdown.Item>
+                    </Link>
+                    <Link to="/category/buzos">
+                      <Dropdown.Item >Buzos</Dropdown.Item>
+                    </Link>
+                    <Link to="/category/remeras">
+                      <Dropdown.Item >Remeras</Dropdown.Item>
+                    </Link>
                   </Dropdown.Menu>
                 </Dropdown>
               </li>

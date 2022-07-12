@@ -16,10 +16,6 @@ function ItemCount(props) {
     }
   };
 
-  const reset = () => {
-    setNum(0);
-  };
-
   return (
     <>
       <div className="container">
@@ -27,27 +23,20 @@ function ItemCount(props) {
           <button
             className="btn btn-primary px-3"
             type="button"
-            onClick={sumar}
+            onClick={restar}
           >
-            +
+            -
           </button>
         <p className="d-flex justify-content-center">{num}</p>
           <button
             className="btn btn-primary px-3"
             type="button"
-            onClick={restar}
+            onClick={sumar}
           >
-            -
+            +
           </button>
         </div>
         <div className="d-flex flex-column">
-          <button
-            className="btn btn-primary my-1"
-            type="button"
-            onClick={reset}
-          >
-            Reset
-          </button>
           <button
             className="btn btn-primary my-1"
             type="button"
