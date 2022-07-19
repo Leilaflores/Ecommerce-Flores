@@ -6,11 +6,12 @@ import ItemDetailContainer from './components/itemDetailContainer/ItemDetailCont
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Cart from './components/cart/cart';
 import CartContext from './store/CartContext';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
 
   const [cart, setCart] = useState([]);
+  const [cartCount, setCartCount] = useState(0);
 
   const addItem = (item, quantity) => {
     const index = cart.findIndex(product => product.id == item.id);   
@@ -24,12 +25,18 @@ function App() {
     }
   }
 
-  const removeItem = (itemId) => {
+  const removeItem = (itemId, cant) => {
     const index = cart.findIndex(product => product.id == itemId);   
     if(index != -1){
       const newCart = cart;
-      newCart.splice(index,1);
+      if(cart[index].quantity == 1){
+        newCart.splice(index,1);
+      }
+      else{
+        newCart[index].quantity -= cant;
+      }
       setCart(newCart);
+      
     }
   }
 
@@ -47,9 +54,16 @@ function App() {
     }
   }
 
+  useEffect(()=>{
+    const cant = cart.reduce((acc, item) => {
+      return acc += item.quantity;
+    },0)
+    setCartCount(cant);
+    },[cart])
+
   return (
     <div className="App">
-      <CartContext.Provider value={{cart, addItem, removeItem, clear, isInCart}}>
+      <CartContext.Provider value={{cart, addItem, removeItem, clear, isInCart, cartCount}}>
         <BrowserRouter>
           <Navbar/>
           <Routes>

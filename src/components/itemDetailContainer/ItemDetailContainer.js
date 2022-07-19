@@ -11,7 +11,6 @@ function ItemDetailContainer() {
   const getItem = async () => {
     const fetchData = await fetch('/data.json') 
     const data = await fetchData.json()
-    console.log(data)
     const item = data.find(item => item.id == id)
     return new Promise((res)=>{setTimeout(res(item),2000)})
   }
@@ -19,9 +18,8 @@ function ItemDetailContainer() {
   useEffect(() => {
     getItem().then((res)=>{
       setItem(res);
-      console.log(res)
     })
-  }, []);
+  }, [id]);
 
   return (
 

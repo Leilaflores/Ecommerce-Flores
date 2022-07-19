@@ -23,7 +23,7 @@ function ItemListContainer() {
             setItems(res);
           }
         })
-      }, []);
+      }, [id]);
 
     return (
       <div className='container'>

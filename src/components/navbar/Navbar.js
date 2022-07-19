@@ -1,10 +1,17 @@
 import "./Navbar.css";
 import Cart from '../cardWidget/CardWidget'
 import logo from "../../assets/logo_locasta.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
+import { useContext } from "react";
+import CartContext from "../../store/CartContext";
 
 function Navbar() {
+
+  const { cartCount } = useContext(CartContext);
+  const navigate = useNavigate();
+
+
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-dark bg-light">
@@ -64,25 +71,19 @@ function Navbar() {
                   </Dropdown.Toggle>
 
                   <Dropdown.Menu>
-                    <Link to="/category/pantalones">
-                      <Dropdown.Item >Pantalones</Dropdown.Item>
-                    </Link>
-                    <Link to="/category/camisas">
-                      <Dropdown.Item >Camisas</Dropdown.Item>
-                    </Link>
-                    <Link to="/category/buzos">
-                      <Dropdown.Item >Buzos</Dropdown.Item>
-                    </Link>
-                    <Link to="/category/remeras">
-                      <Dropdown.Item >Remeras</Dropdown.Item>
-                    </Link>
+                    <Dropdown.Item onClick={()=>{navigate("/category/pantalones")}} >Pantalones</Dropdown.Item>
+                    <Dropdown.Item onClick={()=>{navigate("/category/camisas")}} >Camisas</Dropdown.Item>
+                    <Dropdown.Item onClick={()=>{navigate("/category/buzos")}} >Buzos</Dropdown.Item>
+                    <Dropdown.Item onClick={()=>{navigate("/category/remeras")}} >Remeras</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
               </li>
             </ul>
-            <a className="nav-link">
-              <Cart/>
-            </a>
+            {cartCount != 0 &&
+              <Link to="/cart" className="mx-3">
+                <Cart/>
+              </Link>
+            }
           </div>
         </div>
       </nav>

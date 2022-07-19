@@ -7,7 +7,7 @@ function Item(props) {
     <div className="card col-2 pb-4">
       <div>
         <div className="d-flex flex-column align-items-center">
-        <h4> {props.title} </h4>
+        <h4> {props.cant && props.cant + " X " } {props.title} </h4>
         <p> {props.price} </p>
         </div>
         <Link to={`/item/${props.id}`}>

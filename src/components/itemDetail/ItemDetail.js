@@ -21,8 +21,7 @@ function ItemDetail({item}){
         addItem(newItem, quantity);
     }
 
-    const onAdd = (num)=>{
-        console.log(num)        
+    const onAdd = (num)=>{   
         setItemCount(num); 
         setItemAdded(true);
         addToCart(num);
@@ -30,14 +29,14 @@ function ItemDetail({item}){
 
     return (
         <div className="row">
-            <img src={item.picture} width="300" className="col-4"  />
+            <img alt="" src={item.picture} width="300" className="col-4"  />
             <div className="col-8 d-flex flex-column align-items-center" > 
                 <h1>
                     {item.title}
                 </h1>    
                 <h3>${item.price}</h3>
                 <h4>Stock: {item.stock}</h4>
-                {!itemAdded && <ItemCount stock={item.stock} initial={itemCount} onAdd={(num)=>onAdd(num)} />}
+                {!itemAdded && <ItemCount stock={item.stock} initial={itemCount} onClick={(num)=>onAdd(num)} btnText="Agregar al carrito" />}
                 {itemAdded && <button onClick={()=>navigate("/cart")} className="btn btn-primary px-3" >Terminar compra</button>}
             </div>
         </div>

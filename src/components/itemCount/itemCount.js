@@ -41,10 +41,10 @@ function ItemCount(props) {
             className="btn btn-primary my-1"
             type="button"
             onClick={() => {
-              props.onAdd(num);
+              props.onClick(num);
             }}
           >
-            Agregar al carrito
+            {props.btnText}
           </button>
         </div>
       </div>
