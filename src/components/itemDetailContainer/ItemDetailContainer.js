@@ -1,25 +1,19 @@
-//import "./ItemDetailContainer.css";
 import { useEffect, useState } from "react";
 import ItemDetail from "../itemDetail/ItemDetail";
 import { useParams } from 'react-router-dom'
+import { doc, getDoc, getFirestore } from 'firebase/firestore';
 
 function ItemDetailContainer() {
   const [item, setItem] = useState([]);
-
   const { id } = useParams();
+  const db = getFirestore();
 
-  const getItem = async () => {
-    const fetchData = await fetch('/data.json') 
-    const data = await fetchData.json()
-    const item = data.find(item => item.id == id)
-    return new Promise((res)=>{setTimeout(res(item),2000)})
-  }
-
-  useEffect(() => {
-    getItem().then((res)=>{
-      setItem(res);
+  useEffect(()=>{
+    const docRef = doc(db, "items", id);
+    getDoc(docRef).then((snapshot) =>{
+      setItem({id: snapshot.id, ...snapshot.data()});
     })
-  }, [id]);
+  },[id])
 
   return (
 
