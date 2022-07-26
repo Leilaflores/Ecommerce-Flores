@@ -17,7 +17,6 @@ function ItemDetail({item}){
             picture: item.picture,
             price: item.price
         }
-
         addItem(newItem, quantity);
     }
 

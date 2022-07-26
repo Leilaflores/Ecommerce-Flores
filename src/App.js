@@ -15,20 +15,20 @@ function App() {
 
   const addItem = (item, quantity) => {
     const index = cart.findIndex(product => product.id == item.id);   
+    const newCart = [...cart];
     if(index == -1){
-      cart.push({...item, quantity})
+      newCart.push({...item, quantity})
     }
     else{
-      const newCart = cart;
       newCart[index].quantity += quantity; 
-      setCart(newCart);
     }
+    setCart(newCart);
   }
 
   const removeItem = (itemId, cant) => {
     const index = cart.findIndex(product => product.id == itemId);   
     if(index != -1){
-      const newCart = cart;
+      const newCart = [...cart];
       if(cart[index].quantity == 1){
         newCart.splice(index,1);
       }
@@ -54,16 +54,28 @@ function App() {
     }
   }
 
+  const getItemsForOrder = () => {
+    return cart.map((item)=>{
+      return {id: item.id, title: item.title, price: item.price, quantity: item.quantity,}
+    })
+  }
+
+  const getTotal = () =>{
+    return cart.reduce((acc, item) => {
+      return acc += item.quantity * item.price;
+    },0)
+  }
+
   useEffect(()=>{
     const cant = cart.reduce((acc, item) => {
       return acc += item.quantity;
     },0)
     setCartCount(cant);
-    },[cart])
+  },[cart])
 
   return (
     <div className="App">
-      <CartContext.Provider value={{cart, addItem, removeItem, clear, isInCart, cartCount}}>
+      <CartContext.Provider value={{cart, addItem, removeItem, clear, isInCart, cartCount, getItemsForOrder, getTotal}}>
         <BrowserRouter>
           <Navbar/>
           <Routes>
