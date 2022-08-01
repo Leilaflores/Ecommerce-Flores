@@ -14,8 +14,8 @@ function Navbar() {
 
   return (
     <header>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-light">
-        <div className="fondo container-fluid">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-light p-0">
+        <div className="fondo container-fluid py-1">
           <Link to="/" className="navbar-brand d-flex align-items-center">
             <img
               src={logo}
@@ -40,29 +40,9 @@ function Navbar() {
           <div className="collapse navbar-collapse position-absolute end-0 pe-3" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page">
+                <Link to={"/"} className="nav-link active" aria-current="page">
                   Home
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link">
-                  Productos
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link">
-                  Galeria
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link">
-                  Contacto
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link">
-                  Conocenos
-                </a>
+                </Link>
               </li>
               <li>
                 <Dropdown>

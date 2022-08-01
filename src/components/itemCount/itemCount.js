@@ -19,7 +19,7 @@ function ItemCount(props) {
   return (
     <>
       <div className="container">
-        <div className="d-grid gap-2 d-flex justify-content-around m-2">
+        <div className="d-grid py-1 d-flex justify-content-between align-items-center">
           <button
             className="btn btn-primary px-3"
             type="button"
@@ -27,7 +27,7 @@ function ItemCount(props) {
           >
             -
           </button>
-        <p className="d-flex justify-content-center">{num}</p>
+          <p className="m-0 d-flex justify-content-center">{num}</p>
           <button
             className="btn btn-primary px-3"
             type="button"

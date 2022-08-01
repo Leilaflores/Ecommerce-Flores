@@ -12,6 +12,7 @@ function App() {
 
   const [cart, setCart] = useState([]);
   const [cartCount, setCartCount] = useState(0);
+  const [cartTotal, setCartTotal] = useState(0);
 
   const addItem = (item, quantity) => {
     const index = cart.findIndex(product => product.id == item.id);   
@@ -29,7 +30,7 @@ function App() {
     const index = cart.findIndex(product => product.id == itemId);   
     if(index != -1){
       const newCart = [...cart];
-      if(cart[index].quantity == 1){
+      if(cart[index].quantity == cant){
         newCart.splice(index,1);
       }
       else{
@@ -60,22 +61,21 @@ function App() {
     })
   }
 
-  const getTotal = () =>{
-    return cart.reduce((acc, item) => {
-      return acc += item.quantity * item.price;
-    },0)
-  }
-
   useEffect(()=>{
     const cant = cart.reduce((acc, item) => {
       return acc += item.quantity;
     },0)
+    const total = cart.reduce((acc, item) => {
+      return acc += item.quantity * item.price;
+    },0)
+    
     setCartCount(cant);
+    setCartTotal(total);
   },[cart])
 
   return (
     <div className="App">
-      <CartContext.Provider value={{cart, addItem, removeItem, clear, isInCart, cartCount, getItemsForOrder, getTotal}}>
+      <CartContext.Provider value={{cart, addItem, removeItem, clear, isInCart, cartCount, getItemsForOrder, cartTotal}}>
         <BrowserRouter>
           <Navbar/>
           <Routes>
